@@ -1,0 +1,27 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ThemChuongTrinh">Thêm chương trình đào tạo</button>
+<div class="modal fade" id="ThemChuongTrinh" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <span style="color: white">Thêm chương trình đào tạo</span>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Mã chương trình đào tạo" [(ngModel)]="maChuongTrinh" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Tên chương trình đào tạo" [(ngModel)]="tenChuongTrinh" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="xuLyThemCTDT()" >Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+

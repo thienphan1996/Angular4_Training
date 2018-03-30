@@ -1,0 +1,38 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#themLopHoc">Thêm lớp học</button>
+<div class="modal fade" id="themLopHoc" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <span style="color: white">Thêm lớp học</span>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Mã lớp" [(ngModel)]="maLop" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control selectpicker" [(ngModel)]="tenLopHoc" (ngModelChange)="onSelectMonHocChange($event)" [ngModelOptions]="{standalone: true}">
+                            <option *ngFor="let item of dsMonHoc" [ngValue]="item.tenMonHoc">{{item.tenMonHoc}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Số lượng" [(ngModel)]="soLuong" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <label style="float: left;">Giáo viên giảng dạy</label>
+                        <select class="form-control selectpicker" [(ngModel)]="tenGiaoVienDungLop" (ngModelChange)="onSelectChange($event)" [ngModelOptions]="{standalone: true}">
+                            <option *ngFor="let item of dsGiaoVien" [ngValue]="item.tenGiaoVien">{{item.tenGiaoVien}}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="xuLyThemLop()" >Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+

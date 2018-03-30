@@ -1,0 +1,48 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#DangKy">Đăng ký ngay</button>
+<div class="modal fade" id="DangKy" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <span style="color: white">Đăng ký</span>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Họ và tên" [(ngModel)]="hoTen" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Số điện thoại" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Năm sinh" [(ngModel)]="namSinh" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                            <select class="form-control" name="chuongTrinhDaoTao" [(ngModel)]="nganhDangKy">
+                              <option value="0" selected>Lập trình Android</option>
+                              <option value="1">Lập trình IOS</option>
+                              <option value="2">Lập trình Angular 4</option>
+                              <option value="3">Lập trình Laravel</option>
+                              <option value="4">Lập trình PHP</option>
+                              <option value="5">Lập trình Fron-End</option>
+                              <option value="6">Lập trình Java</option>
+                              <option value="7">Lập trình ASP.NET</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" name="optradio" value="male" [(ngModel)] = "gioiTinh" [ngModelOptions]="{standalone: true}">Nam</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" value="female" [(ngModel)] = "gioiTinh" [ngModelOptions]="{standalone: true}">Nữ</label>
+                    </div>
+                    <div class="form-group">
+                        <h5 class="lead text-success" *ngIf="isDangKy" >Đăng ký thành công</h5>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="xuLyDangKy()" >Đăng ký</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  

@@ -1,0 +1,35 @@
+<div class="row justify-content-md-center">
+  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    <div class="card text-center">
+      <div class="card-header">
+          <h4 class="text-success">Danh sách giáo viên</h4>
+      </div>
+      <div class="card-body">
+          <app-themgiaovien style="float: right; margin-bottom: 10px"></app-themgiaovien>
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên giáo viên</th>
+                <th>Giới tính</th>
+                <th>Năm sinh</th>
+                <th>Môn đứng lớp</th>
+                <th>Cập nhật</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of dsGiaoVien; let i = index" >
+                <td>{{i+1}}</td>
+                <td>{{item.tenGiaoVien}}</td>
+                <td>{{item.gioiTinh}}</td>
+                <td>{{item.namSinh}}</td>
+                <td>{{item.monDungLop}}</td>
+                <td><button class="btn btn-outline-danger btn-sm" style="margin-right: 4px">Xoá</button><button class="btn btn-outline-primary btn-sm">Sửa</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+    
+  </div>
+</div>

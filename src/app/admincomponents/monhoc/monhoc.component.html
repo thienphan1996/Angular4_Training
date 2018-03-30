@@ -1,0 +1,34 @@
+<div class="row justify-content-md-center" style="width: 100%">
+  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    <div class="card text-center">
+      <div class="card-header">
+        <h4 class="text-success">Danh sách môn học</h4>
+      </div>
+      <div class="card-body">
+          <app-themmonhoc style="float: right; margin-bottom: 10px"></app-themmonhoc>
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Mã môn học</th>
+                <th>Tên môn học</th>
+                <th>Học phí</th>
+                <th>Cập nhật</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of dsMonHoc; let i = index" >
+                <td>{{i+1}}</td>
+                <td>{{item.maMonHoc}}</td>
+                <td>{{item.tenMonHoc}}</td>
+                <td>{{item.hocPhi}}</td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" style="margin-right: 4px">Xoá</button><button type="button" class="btn btn-outline-primary btn-sm">Sửa</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>

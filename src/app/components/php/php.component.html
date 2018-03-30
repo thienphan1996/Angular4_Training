@@ -1,0 +1,16 @@
+<a *ngFor="let item of data">
+  <p>{{item.ten}}</p>
+</a>
+
+<div class="form-group">
+  <label for="">Nhập mã số sinh viên</label>
+  <input type="text"
+    class="form-control" name="" id="" placeholder="Mã sinh viên" [(ngModel)]="mssv">
+    <label for="">Nhập tên sinh viên</label>
+  <input type="text|password|email|number|submit|date|datetime|datetime-local|month|color|range|search|tel|time|url|week"
+    class="form-control" name="" id="" aria-describedby="Mã sinh viên" placeholder="Tên sinh viên" [(ngModel)]="ten">
+    <label for="">Ngành học</label>
+  <input type="text|password|email|number|submit|date|datetime|datetime-local|month|color|range|search|tel|time|url|week"
+    class="form-control" name="" id="" aria-describedby="Mã sinh viên" placeholder="Ngành học" [(ngModel)]="nganhHoc">
+  <button (click)="NhapSinhVien()" type="button" class="btn btn-primary|secondary|success|danger|warning|info|light|dark|link-outline btn-primary-outline">Xong</button>
+</div>
