@@ -19,10 +19,24 @@
             <tbody>
               <tr *ngFor="let item of dsMonHoc; let i = index" >
                 <td>{{i+1}}</td>
-                <td>{{item.maMonHoc}}</td>
-                <td>{{item.tenMonHoc}}</td>
-                <td>{{item.hocPhi}}</td>
-                <td><button type="button" class="btn btn-outline-danger btn-sm" style="margin-right: 4px">Xoá</button><button type="button" class="btn btn-outline-primary btn-sm">Sửa</button></td>
+                <td *ngIf="!isChange" >{{item.maMonHoc}}</td>
+                <td *ngIf="isChange" >
+                    <input type="text" class="form-control" placeholder="{{item.maMonHoc}}"  [(ngModel)]="newMaMonHoc">
+                </td>
+                <td *ngIf="!isChange">{{item.tenMonHoc}}</td>
+                <td *ngIf="isChange" >
+                    <input type="text" class="form-control" placeholder="{{item.tenMonHoc}}" [(ngModel)]="newTenMonHoc">
+                </td>
+                <td *ngIf="!isChange">{{item.hocPhi}}</td>
+                <td *ngIf="isChange" >
+                    <input type="text" class="form-control" placeholder="{{item.hocPhi}}" [(ngModel)]="newHocPhi">
+                </td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger btn-sm" style="margin-right: 4px" *ngIf="!isChange" (click)="xuLyXoaMonHoc(i)">Xoá</button>
+                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="changeMonHoc()" *ngIf="!isChange">Sửa</button>
+                  <button type="button" class="btn btn-success btn-sm" (click)="changeMonHoc()" *ngIf="isChange" (click)="changedMonHoc(i)">Xong</button>
+                  <button type="button" class="btn btn-warning btn-sm" (click)="cancelChangeMonHoc()" *ngIf="isChange">Huỷ</button>
+                </td>
               </tr>
             </tbody>
           </table>

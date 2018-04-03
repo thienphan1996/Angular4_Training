@@ -1,5 +1,5 @@
 <div class="row justify-content-md-center">
-  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+  <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
     <div class="card text-center">
       <div class="card-header">
           <h4 class="text-success">Danh sách giáo viên</h4>
@@ -10,6 +10,7 @@
             <thead>
               <tr>
                 <th>STT</th>
+                <th>Mã giáo viên</th>
                 <th>Tên giáo viên</th>
                 <th>Giới tính</th>
                 <th>Năm sinh</th>
@@ -20,11 +21,20 @@
             <tbody>
               <tr *ngFor="let item of dsGiaoVien; let i = index" >
                 <td>{{i+1}}</td>
+                <td>{{item.maGiaoVien}}</td>
                 <td>{{item.tenGiaoVien}}</td>
                 <td>{{item.gioiTinh}}</td>
                 <td>{{item.namSinh}}</td>
-                <td>{{item.monDungLop}}</td>
-                <td><button class="btn btn-outline-danger btn-sm" style="margin-right: 4px">Xoá</button><button class="btn btn-outline-primary btn-sm">Sửa</button></td>
+                <td *ngIf="!isChange">{{item.monDungLop}}</td>
+                <td  *ngIf="isChange" >
+                    <input type="text" class="form-control" placeholder="{{item.monDungLop}}" [(ngModel)]="newSubject">
+                </td>
+                <td>
+                  <button class="btn btn-outline-danger btn-sm" style="margin-right: 4px" *ngIf="!isChange" (click)="xuLyXoaGiaoVien(i)">Xoá</button>
+                  <button class="btn btn-outline-primary btn-sm" (click)="xuLySuaGiaoVien()" *ngIf="!isChange">Sửa</button>
+                  <button class="btn btn-success btn-sm" (click)="changedGiaoVien(i,item.maGiaoVien,item.tenGiaoVien,item.gioiTinh,item.namSinh)" *ngIf="isChange">Xong</button>
+                  <button class="btn btn-warning btn-sm" (click)="xuLyHuyChange()" *ngIf="isChange" >Huỷ</button>
+                </td>
               </tr>
             </tbody>
           </table>

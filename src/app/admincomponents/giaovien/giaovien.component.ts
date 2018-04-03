@@ -9,7 +9,10 @@ import * as firebase from 'firebase/app';
 })
 export class GiaovienComponent implements OnInit {
 
+  todosGiaoVien : AngularFireList<any>;
+  newSubject = '';
   dsGiaoVien : any[];
+  isChange = false;
   constructor(public mydb : AngularFireDatabase) {
       this.mydb.list("GiaoVien").valueChanges().subscribe(data =>{
         this.dsGiaoVien = data;
@@ -19,4 +22,34 @@ export class GiaovienComponent implements OnInit {
   ngOnInit() {
   }
 
+  xuLyXoaGiaoVien(i){
+    this.todosGiaoVien = this.mydb.list("GiaoVien");
+    this.todosGiaoVien.snapshotChanges(["child_added"]).subscribe(action =>{
+      let key = action[i].key;
+      this.todosGiaoVien.remove(key);
+    });
+  }
+
+  xuLySuaGiaoVien(){
+    this.isChange = true;
+  }
+  xuLyHuyChange(){
+    this.isChange = false;
+  }
+  changedGiaoVien(i,maGiaoVien,tenGiaoVien,gioiTinh,namSinh){
+    let giaoVien = {
+      "maGiaoVien" : maGiaoVien,
+      "tenGiaoVien" : tenGiaoVien,
+      "gioiTinh" : gioiTinh,
+      "namSinh" : namSinh,
+      "monDungLop" : this.newSubject
+    };
+    this.todosGiaoVien = this.mydb.list("GiaoVien");
+    this.todosGiaoVien.snapshotChanges(["child_added"]).subscribe(actions => {
+      let key = actions[i].key;
+      this.todosGiaoVien.set(key,giaoVien);
+    });
+    this.isChange = false;
+    this.newSubject = '';
+  }
 }

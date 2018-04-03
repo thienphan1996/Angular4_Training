@@ -1,0 +1,44 @@
+<div class="row">
+  
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="list-group" *ngFor="let item of dsChuongTrinhDT" >
+      <a [routerLink]="['/sinhvien']" class="list-group-item list-group-item-action" (click)="changeSinhVienContent(item.tenCT)">{{item.tenCT}}</a>
+    </div>
+  </div>
+  
+  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+    <div class="card">
+      <div class="card-header text-center">
+        <h4 class="text-success">Danh sách sinh viên {{tenChuongTrinh}}</h4>
+      </div>
+      <div class="card-body text-center">
+        <app-themsinhvien style="float: right; margin-bottom: 10px"></app-themsinhvien>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã sinh viên</th>
+              <th>Tên sinh viên</th>
+              <th>Giới tính</th>
+              <th>Năm sinh</th>
+              <th>Xoá</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of showSinhVien; let i = index" >
+              <td>{{i+1}}</td>
+              <td>{{item.maSinhVien}}</td>
+              <td>{{item.tenSinhVien}}</td>
+              <td>{{item.gioiTinh}}</td>
+              <td>{{item.namSinh}}</td>
+              <td><button class="btn btn-sm btn-outline-danger" (click)="xuLyXoaSinhVien(i)">Xoá</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>

@@ -29,6 +29,11 @@ import { ThemlophocComponent } from './admincomponents/themlophoc/themlophoc.com
 import { MonhocComponent } from './admincomponents/monhoc/monhoc.component';
 import { ThemgiaovienComponent } from './admincomponents/themgiaovien/themgiaovien.component';
 import { GiaovienComponent } from './admincomponents/giaovien/giaovien.component';
+import { DanhsachdangkyComponent } from './admincomponents/danhsachdangky/danhsachdangky.component';
+import { ThemsinhvienComponent } from './admincomponents/themsinhvien/themsinhvien.component';
+import { SinhvienComponent } from './admincomponents/sinhvien/sinhvien.component';
+import { TaikhoanComponent } from './admincomponents/taikhoan/taikhoan.component';
+import { ThemtaikhoanComponent } from './admincomponents/themtaikhoan/themtaikhoan.component';
 
 
 
@@ -110,6 +115,18 @@ const appRouter: Routes = [
   {
     path: 'giaovien',
     component: GiaovienComponent
+  },
+  {
+    path: 'dsdangky',
+    component: DanhsachdangkyComponent
+  },
+  {
+    path: 'sinhvien',
+    component: SinhvienComponent
+  },
+  {
+    path: 'taikhoan',
+    component: TaikhoanComponent
   }
 ]
 
@@ -138,7 +155,12 @@ const appRouter: Routes = [
     ThemlophocComponent,
     MonhocComponent,
     ThemgiaovienComponent,
-    GiaovienComponent
+    GiaovienComponent,
+    DanhsachdangkyComponent,
+    ThemsinhvienComponent,
+    SinhvienComponent,
+    TaikhoanComponent,
+    ThemtaikhoanComponent,
   ],
   imports: [
     BrowserModule,

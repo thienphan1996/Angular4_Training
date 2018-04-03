@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#themSinhVien">Thêm sinh viên</button>
+<div class="modal fade" id="themSinhVien" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <span style="color: white">Thêm sinh viên</span>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Mã sinh viên" [(ngModel)]="maSinhVien" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Tên sinh viên" [(ngModel)]="tenSinhVien" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text"  placeholder="Năm sinh" [(ngModel)]="namSinh" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" name="optradio" value="Nam" [(ngModel)] = "gioiTinh" [ngModelOptions]="{standalone: true}">Nam</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" value="Nữ" [(ngModel)] = "gioiTinh" [ngModelOptions]="{standalone: true}">Nữ</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Ngành học</label>
+                      <select class="form-control" name="" id=""[(ngModel)]="nganhHocSelect" (ngModelChange)="onSelectChange($event)" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let item of dsMonHoc" [ngValue]="item.tenCT">{{item.tenCT}}</option>
+                      </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="xuLyThemSinhVien()" >Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
