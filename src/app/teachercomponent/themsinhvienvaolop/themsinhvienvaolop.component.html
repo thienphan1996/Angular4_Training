@@ -1,0 +1,28 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#themSinhVien">Thêm sinh viên</button>
+<div class="modal fade" id="themSinhVien" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <span style="color: white">Thêm sinh viên vào lớp</span>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                      <label for="">Chọn sinh viên</label>
+                      <select class="form-control" [(ngModel)]="sinhVienSelect" (ngModelChange)="onSelectChange($event)" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let item of dsSinhVien" [ngValue]="item">{{item.tenSinhVien}}</option>
+                      </select>
+                      <label for="" class="text-success">Sinh viên được chọn: {{sinhVienSelect}}</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="xuLyThemSinhVien()" >Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+

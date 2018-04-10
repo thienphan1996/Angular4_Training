@@ -15,6 +15,9 @@ export class ThemlophocComponent implements OnInit {
   tenGiaoVienDungLop : string;
   tenLopHoc : string;
   maLopHoc : string;
+  thoiGianHoc : string;
+  tietHoc : string;
+  phongHoc : string;
   dsGiaoVien : any[];
   dsMonHoc : any[];
 
@@ -35,7 +38,19 @@ export class ThemlophocComponent implements OnInit {
       "maLop" : this.maLop,
       "tenLop" : this.tenLopHoc,
       "soLuong" : this.soLuong,
-      "tenGiaoVien" : this.tenGiaoVienDungLop
+      "tenGiaoVien" : this.tenGiaoVienDungLop,
+      "thoiGianHoc" : this.thoiGianHoc,
+      "tietHoc" : this.tietHoc,
+      "phongHoc" : this.phongHoc,
+      "dsSinhVien" : [
+        {
+          "maSinhVien" : "SV00",
+          "tenSinhVien" : "Sinh viên Default",
+          "diemGiuaKy" : "",
+          "diemCuoiKy" : "",
+          "ketQua" : ""
+        }
+      ]
     };
     this.mydb.list("/LopHoc").push(lopHoc);
   }

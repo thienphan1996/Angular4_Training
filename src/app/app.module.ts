@@ -34,6 +34,12 @@ import { ThemsinhvienComponent } from './admincomponents/themsinhvien/themsinhvi
 import { SinhvienComponent } from './admincomponents/sinhvien/sinhvien.component';
 import { TaikhoanComponent } from './admincomponents/taikhoan/taikhoan.component';
 import { ThemtaikhoanComponent } from './admincomponents/themtaikhoan/themtaikhoan.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NganhdaotaoComponent } from './nganhdaotao/nganhdaotao.component';
+import { TeacherhomeComponent } from './teachercomponent/teacherhome/teacherhome.component';
+import { ChuongtrinhdetailComponent } from './chuongtrinhdetail/chuongtrinhdetail.component';
+import { ThemsinhvienvaolopComponent } from './teachercomponent/themsinhvienvaolop/themsinhvienvaolop.component';
+import { DiemmonhocComponent } from './teachercomponent/diemmonhoc/diemmonhoc.component';
 
 
 
@@ -51,82 +57,116 @@ export const environment = {
 
 const appRouter: Routes = [
   {
-    path: 'ctdaotao',
-    component: CtdaotaoComponent,
-    children: [
-      {
-        path: 'android',
-        component: AndroidComponent
-      },
-      {
-        path: '',
-        component: AndroidComponent
-      },
-      {
-        path: 'angular',
-        component: AngularComponent
-      },
-      {
-        path: 'ios',
-        component: IosComponent
-      },
-      {
-        path: 'aspnet',
-        component: AspnetComponent
-      },
-      {
-        path: 'fronend',
-        component: FronendComponent
-      },
-      {
-        path: 'java',
-        component: JavaComponent
-      },
-      {
-        path: 'laravel',
-        component: LaravelComponent
-      },
-      {
-        path: 'php',
-        component: PhpComponent
-      }
-    ]
-  },
-  {
     path: 'menudaotao',
     component: MenudaotaoComponent
   },
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        component: HomepageComponent
+      },
+      {
+        path: 'nganhdaotao',
+        component: NganhdaotaoComponent
+      },
+      {
+        path: 'ctdaotao',
+        component: CtdaotaoComponent,
+        children: [
+          {
+            path: 'android',
+            component: AndroidComponent
+          },
+          {
+            path: '',
+            component: AndroidComponent
+          },
+          {
+            path: 'angular',
+            component: AngularComponent
+          },
+          {
+            path: 'ios',
+            component: IosComponent
+          },
+          {
+            path: 'aspnet',
+            component: AspnetComponent
+          },
+          {
+            path: 'fronend',
+            component: FronendComponent
+          },
+          {
+            path: 'java',
+            component: JavaComponent
+          },
+          {
+            path: 'laravel',
+            component: LaravelComponent
+          },
+          {
+            path: 'php',
+            component: PhpComponent
+          }
+        ]
+      }
+    ]
   },
   {
-    path: 'qldthome',
-    component: QldthomeComponent
+    path: 'quanlydaotao',
+    component: QuanlydaotaoComponent,
+    children: [
+      {
+        path: '',
+        component: QldthomeComponent
+      },
+      {
+        path: 'qldthome',
+        component: QldthomeComponent
+      },
+      {
+        path: 'lophoc',
+        component: LophocComponent
+      },
+      {
+        path: 'monhoc',
+        component: MonhocComponent
+      },
+      {
+        path: 'giaovien',
+        component: GiaovienComponent
+      },
+      {
+        path: 'dsdangky',
+        component: DanhsachdangkyComponent
+      },
+      {
+        path: 'sinhvien',
+        component: SinhvienComponent
+      },
+      {
+        path: 'taikhoan',
+        component: TaikhoanComponent
+      }
+    ]
   },
   {
-    path: 'lophoc',
-    component: LophocComponent
-  },
-  {
-    path: 'monhoc',
-    component: MonhocComponent
-  },
-  {
-    path: 'giaovien',
-    component: GiaovienComponent
-  },
-  {
-    path: 'dsdangky',
-    component: DanhsachdangkyComponent
-  },
-  {
-    path: 'sinhvien',
-    component: SinhvienComponent
-  },
-  {
-    path: 'taikhoan',
-    component: TaikhoanComponent
+    path:'teacherhome',
+    component: TeacherhomeComponent,
+    children: [
+      {
+        path: '',
+        component: ChuongtrinhdetailComponent
+      },
+      {
+        path: 'diemmonhoc',
+        component: DiemmonhocComponent
+      }
+    ]
   }
 ]
 
@@ -161,6 +201,12 @@ const appRouter: Routes = [
     SinhvienComponent,
     TaikhoanComponent,
     ThemtaikhoanComponent,
+    HomepageComponent,
+    NganhdaotaoComponent,
+    TeacherhomeComponent,
+    ChuongtrinhdetailComponent,
+    ThemsinhvienvaolopComponent,
+    DiemmonhocComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,55 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-">
+             <div class="list-group">
+             <a *ngFor="let item of dsLopHoc" [routerLink]="['/teacherhome/diemmonhoc']"  class="list-group-item list-group-item-action">{{item.tenLop}}</a>
+             </div>
+        </div>
+                
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <app-themsinhvienvaolop></app-themsinhvienvaolop>
+            <div class="card" style="margin-top: 10px">
+                <div class="card-header">
+                    Lý thuyết đồ thị
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                            <tr style="font-weight: bold" class=" text-primary">
+                                <td>Tên giáo viên: {{tenGiaoVien}}</td>
+                                <td>Thời gian học: {{thoiGianHoc}}</td>
+                                <td>Tiết học: {{tietHoc}}</td>
+                                <td>Phòng học: {{phongHoc}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Sinh Viên</th>
+                                <th>Tên Sinh Viên</th>
+                                <th>Giữa Kỳ</th>
+                                <th>Cuối Kỳ</th>
+                                <th>Kết Quả</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of dsSinhVien; let i = index" >
+                                <td>{{i+1}}</td>
+                                <td>{{item.maSinhVien}}</td>
+                                <td>{{item.tenSinhVien}}</td>
+                                <td>{{item.diemGiuaKy}}</td>
+                                <td>{{item.diemCuoiKy}}</td>
+                                <td>{{item.ketQua}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>    
+    </div>
+    
+</div>

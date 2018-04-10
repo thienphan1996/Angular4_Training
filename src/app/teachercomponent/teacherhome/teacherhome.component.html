@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand navbar-light" style="background-color: #3F51B5; height: 44px;">
+  <a class="navbar-brand" href="#"><h4 style="font-weight: bold; color: #fff">Teacher</h4></a>
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav-tabs" style="font-weight: bold; color: #fff">
+      <li class="nav-item">
+          <a class="nav-link" style="color: #fff" [routerLink]="['/teacherhome']">Chương trình đào tạo <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+          <a class="nav-link" style="color: #fff" [routerLink]="['/teacherhome/diemmonhoc']">Lớp học</a>
+      </li>
+  </ul>
+</nav>
+<div class="container-fluid" style="margin-top: 10px">
+  <router-outlet>
+
+  </router-outlet>
+</div>

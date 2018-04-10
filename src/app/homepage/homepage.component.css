@@ -1,0 +1,65 @@
+.item{
+	background-color: #BDBDBD44;
+	border-radius: 5px;
+	text-align: center;
+}
+.item:hover{
+    background-color: #BDBDBD99;
+}
+.giamonhoc{
+    font-weight: bold;
+    color: #80DEEA;
+}
+.inputgroup{
+    height: 30px;
+    margin-top: 10px;
+    background-color: #BDBDBD22;
+}
+
+.btnwater{
+    background-color: #1E88E588;
+    color: white;
+    
+}
+
+.linkcustom{
+    color: #ffffff;
+}
+
+.linkcustom:hover{
+    color: #BBDEFB;
+    text-decoration: none;
+}
+
+.imgmargintop{
+	margin-top: 10px;
+}
+a div img{
+    transition: 0.5s;
+}
+a div img:hover{
+    transform: scale(1.1,1.05);
+}
+.imgsize{
+    width: 200px;
+    height: 170px;
+}
+a div p{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+ul li .menu{
+    color: rgba(15, 15, 15, 0.753);
+}
+ul li .menu:hover{
+    color: rgb(68, 108, 238);
+}
+.content{
+    width: 100%;
+}
+.nonepadding{
+    padding: 0px;
+}
+

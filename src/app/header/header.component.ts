@@ -12,15 +12,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  maUser : string;
   checkLogin : boolean = false;
+  logged = false;
   tenTaiKhoan: string;
   matKhau: string;
   dsTaiKhoan: any[];
   constructor(private data: AngularFireDatabase,private routerSevice: Router) {
     this.data.list("/TaiKhoan").valueChanges().subscribe(listtaikhoan => {
       this.dsTaiKhoan = listtaikhoan;
+      
     })
-    
    }
 
   ngOnInit() {
@@ -29,10 +31,15 @@ export class HeaderComponent implements OnInit {
   isLogin(){
     let i = 0;
     let islogin : boolean = false;
+    for (let i = 0; i < this.dsTaiKhoan.length; i++){
+      if (this.dsTaiKhoan[i]['tenUser'] == this.tenTaiKhoan){
+        this.maUser = this.dsTaiKhoan[i]['maUser'];
+      }
+    }
     for (i; i < this.dsTaiKhoan.length; i++){
       let JsonTaiKhoan = JSON.stringify(this.dsTaiKhoan[i]);
       let taiKhoan = JSON.parse(JsonTaiKhoan);
-      let username = taiKhoan['tenTaiKhoan'];
+      let username = taiKhoan['tenUser'];
       let pass = taiKhoan['matKhau'];
       if (this.tenTaiKhoan==username && this.matKhau==pass){
         // const ob =  this.data.object('/TrangThai');
@@ -41,8 +48,25 @@ export class HeaderComponent implements OnInit {
         islogin = true;
       }
     }
-    (islogin == true) ? this.checkLogin = false : this.checkLogin = true;
+    if (this.tenTaiKhoan == "admin" && this.matKhau == "admin"){
+      this.routerSevice.navigate(['/quanlydaotao']);
+      window.location.reload();
+      islogin = true;
+    }
+    if (this.maUser.substring(0,2) == "GV" && islogin == true){
+      this.routerSevice.navigate(['/teacherhome']);
+    }
+    if (islogin == true) {
+      this.checkLogin = false;
+      this.logged = true;
+    }
+    else {
+      this.checkLogin = true;
+    }
   }
 
+  xuLyDangXuat(){
+    this.logged = false;
+  }
   
 }

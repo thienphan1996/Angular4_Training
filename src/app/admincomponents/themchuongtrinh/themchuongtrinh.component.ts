@@ -28,6 +28,7 @@ export class ThemchuongtrinhComponent implements OnInit {
         "B000000","B000001"
       ]
     };
-    this.mydb.list("/ChuongTrinhDaoTao").push(chuongTrinh);
+    this.mydb.list("ChuongTrinhDaoTao").push(chuongTrinh);
+    window.location.reload();
   }
 }

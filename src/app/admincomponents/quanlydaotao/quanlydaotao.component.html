@@ -1,28 +1,38 @@
-<nav class="navbar navbar-expand navbar-light bg-faded" style="background-color: #42424211">
-    <a class="navbar-brand" href="#"><h4 style="font-weight: bold">Administrator</h4></a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav-tabs">
-        <li class="nav-item active">
-            <a class="nav-link text-primary" [routerLink]="['/qldthome']">Chương trình đào tạo <span class="sr-only">(current)</span></a>
+<nav class="navbar navbar-expand navbar-light" style="background-color: #3F51B5; height: 44px;">
+    <a class="navbar-brand" href="#"><h4 style="font-weight: bold; color: #fff">Administrator</h4></a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav-tabs" style="font-weight: bold; color: #fff">
+        <li class="nav-item">
+            <a class="nav-link" style="color: #fff" [routerLink]="['qldthome']">Chương trình đào tạo <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link text-primary" [routerLink]="['/lophoc']">Lớp học</a>
+            <a class="nav-link" style="color: #fff" [routerLink]="['lophoc']">Lớp học</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link text-primary" [routerLink]="['monhoc']">Môn học</a>
+            <a class="nav-link" style="color: #fff" [routerLink]="['monhoc']">Môn học</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-primary" [routerLink]="['/giaovien']">Giáo viên</a>
+            <a class="nav-link" style="color: #fff" [routerLink]="['giaovien']">Giáo viên</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-primary" [routerLink]="['/sinhvien']">Sinh viên</a>
+            <a class="nav-link" style="color: #fff" [routerLink]="['sinhvien']">Sinh viên</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-primary" [routerLink]="['/dsdangky']">Học viên đăng ký</a>
+            <a class="nav-link" style="color: #fff" [routerLink]="['dsdangky']">Học viên đăng ký</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-primary" [routerLink]="['/taikhoan']">Tài khoản</a>
+            <a class="nav-link" style="color: #fff" [routerLink]="['taikhoan']">Tài khoản</a>
         </li>
     </ul>
+    <div class="dropdown open">
+        <button class="btn btn-primary dropdown-toggle" style="float: right" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                    Xin chào Administrator
+                </button>
+        <div class="dropdown-menu" aria-labelledby="triggerId">
+            <button class="dropdown-item" href="#">Đổi mật khẩu</button>
+            <button class="dropdown-item" href="#">Đăng xuất</button>
+        </div>
+    </div>
 </nav>
 <div class="container-fluid" style="margin-top: 10px">
     <router-outlet>
