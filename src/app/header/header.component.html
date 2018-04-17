@@ -1,28 +1,28 @@
 <div class="row">
   <div class="col-xs-12" style="font-weight: bold">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top col-xl-12" style="padding: 0px">
-        <a class="navbar-brand" [routerLink]="['/']"><img src="../assets/img/logo.png" class="logo img-fluid|thumbnail rounded-top|rounded-right|rounded-bottom|rounded-left|rounded-circle|" alt=""></a>
+        <a class="navbar-brand" [routerLink]="['/']"><img src="../assets/img/logo.png" class="logo img-fluid rounded-top|rounded-right|rounded-bottom|rounded-left|rounded-circle|" alt=""></a>
         <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation"></button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/']">Giới thiệu</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav-pills nav-stacked">
+            <li class="nav-item menu">
+              <a class="nav-link text-primary" [routerLink]="['/']">Giới thiệu</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="[ '/nganhdaotao']">Ngành đào tạo</a>
+            <li class="nav-item menu">
+                <a class="nav-link text-primary" [routerLink]="[ '/nganhdaotao']">Ngành đào tạo</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="[ '/ctdaotao']">Các lớp ngắn hạn</a>
+            <li class="nav-item menu">
+              <a class="nav-link text-primary" [routerLink]="[ '/ctdaotao']">Các lớp ngắn hạn</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" [routerLink]="[ '/']">Tra cứu</a>
+            <li class="nav-item menu">
+               <a class="nav-link text-primary" [routerLink]="[ '/']">Tra cứu</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Tin tức</a>
+            <li class="nav-item menu">
+                <a class="nav-link text-primary" href="#">Tin tức</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hỗ trợ</a>
+              <a class="nav-link dropdown-toggle text-primary menu" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hỗ trợ</a>
               <div class="dropdown-menu" aria-labelledby="dropdownId">
                 <a class="dropdown-item" href="#">Liên hệ</a>
                 <a class="dropdown-item" href="#">Góp ý</a>
@@ -62,13 +62,13 @@
                   </div>
               </div>
               <div class="dropdown open">
-                    <button class="btn btn-secondary dropdown-toggle" *ngIf="logged"  type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                    <button class="btn btn-info dropdown-toggle" style="margin-right: 5px" *ngIf="logged"  type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
                           aria-expanded="false">
-                            Xin chào
+                            Xin chào {{tenUser}}
                     </button>
                   <div class="dropdown-menu" aria-labelledby="triggerId" *ngIf="logged" >
-                      <button class="dropdown-item" href="#">Cá nhân</button>
-                      <button class="dropdown-item" href="#">Đổi mật khẩu</button>
+                      <button class="dropdown-item" [routerLink]="['/privatesinhvien/thongtinsinhvien']">Cá nhân</button>
+                      <button class="dropdown-item" [routerLink]="['/doimatkhausinhvien']">Đổi mật khẩu</button>
                       <button class="dropdown-item" (click)="xuLyDangXuat()">Đăng xuất</button>
                   </div>
               </div>
@@ -81,3 +81,4 @@
       </nav>
   </div>
 </div>
+

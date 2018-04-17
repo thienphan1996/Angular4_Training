@@ -13,6 +13,7 @@ export class GiaovienComponent implements OnInit {
   newSubject = '';
   dsGiaoVien : any[];
   isChange = false;
+  indexChange = -1;
   constructor(public mydb : AngularFireDatabase) {
       this.mydb.list("GiaoVien").valueChanges().subscribe(data =>{
         this.dsGiaoVien = data;
@@ -30,7 +31,8 @@ export class GiaovienComponent implements OnInit {
     });
   }
 
-  xuLySuaGiaoVien(){
+  xuLySuaGiaoVien(i){
+    this.indexChange = i;
     this.isChange = true;
   }
   xuLyHuyChange(){
@@ -51,5 +53,11 @@ export class GiaovienComponent implements OnInit {
     });
     this.isChange = false;
     this.newSubject = '';
+  }
+  checkChange(i:number){
+    if (this.indexChange==i && this.isChange == true){
+      return true;
+    }
+    return false;
   }
 }

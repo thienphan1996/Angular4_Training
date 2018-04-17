@@ -8,6 +8,16 @@
           <a class="nav-link" style="color: #fff" [routerLink]="['/teacherhome/diemmonhoc']">Lớp học</a>
       </li>
   </ul>
+  <div class="dropdown open" style="float: right">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+                  Xin chào teacher
+              </button>
+      <div class="dropdown-menu" aria-labelledby="triggerId">
+          <button class="dropdown-item" [routerLink]="['/teacherhome/doimatkhauteacher']">Đổi mật khẩu</button>
+          <button class="dropdown-item" [routerLink]="['/']">Đăng xuất</button>
+      </div>
+  </div>
 </nav>
 <div class="container-fluid" style="margin-top: 10px">
   <router-outlet>

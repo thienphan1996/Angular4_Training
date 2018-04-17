@@ -8,9 +8,9 @@
   </div>
   <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
     <div class="card text-center">
-      <div class="card-header">
-        <h4 class="text-primary">Danh sách tài khoản</h4>
-      </div>
+        <div class="card-header bg-primary" style="color: white; font-weight: bold; font-size: 20px">
+            Danh sách tài khoản {{loaiTaiKhoan}}
+        </div>
       <div class="card-body">
           <app-themtaikhoan style="float: right; margin-bottom: 10px"></app-themtaikhoan>
           <table class="table table-bordered table-hover">
@@ -20,6 +20,7 @@
                 <th class="tablehead">Mã User</th>
                 <th class="tablehead">Tên tài khoản</th>
                 <th class="tablehead">Mật khẩu</th>
+                <th class="tablehead">Xoá</th>
               </tr>
             </thead>
             <tbody>
@@ -28,6 +29,9 @@
                 <td>{{item.maUser}}</td>
                 <td>{{item.tenUser}}</td>
                 <td>{{item.matKhau}}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm">Xoá</button>
+                </td>
               </tr>
             </tbody>
           </table>

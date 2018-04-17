@@ -1,20 +1,21 @@
 <div class="row" style="width: 100%;">
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <app-themchuongtrinh></app-themchuongtrinh>
       <div class="list-group" *ngFor="let item of dsChuongTrinh; let i = index" >
         <a class="list-group-item list-group-item-action tablehead" (click)="changeContent($event,i)"  style="font-size: 15px" [routerLink]="['/quanlydaotao/qldthome']">{{item.tenCT}}</a>
       </div>
     </div>
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-        <app-themchuongtrinh></app-themchuongtrinh>
-        <button type="button" class="btn btn-danger" style="float: right" (click)="xoaChuongTrinhDaoTao()">Xoá chương trình đào tạo</button>
-        <div class="card" style="margin-top: 10px; width: 100%">
-            <h5 class="card-header text-primary">{{tenChuongTrinh}}</h5>
+        
+        <div class="card" style="width: 100%">
+            <h5 class="card-header bg-primary" style="color: white">{{tenChuongTrinh}}</h5>
             <div class="card-body">
                 <p>
                     <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#contentId" aria-expanded="false"
                             aria-controls="contentId">
                         Thêm môn học
                     </button>
+                    <button type="button" class="btn btn-danger" style="float: right" (click)="xoaChuongTrinhDaoTao()">Xoá chương trình đào tạo</button>
                 </p>
                 <div class="collapse" id="contentId">
                     <div class="form-group">
@@ -30,7 +31,7 @@
                                     <th class="tablehead">STT</th>
                                     <th class="tablehead">Mã môn học</th>
                                     <th class="tablehead">Tên môn học</th>
-                                    <th class="tablehead">Học phí</th>
+                                    <th class="tablehead">Tín chỉ</th>
                                     <th class="tablehead">Xoá</th>
                                 </tr>
                             </thead>

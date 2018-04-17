@@ -5,3 +5,11 @@
 .islogin{
     visibility: hidden;
 }
+.menu{
+    font-weight: bold;
+}
+.menu:hover{
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    color: white;
+}

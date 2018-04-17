@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  maUser : string;
+  maUser : string = '';
   checkLogin : boolean = false;
   logged = false;
   tenTaiKhoan: string;
   matKhau: string;
   dsTaiKhoan: any[];
+  tenUser : string;
   constructor(private data: AngularFireDatabase,private routerSevice: Router) {
     this.data.list("/TaiKhoan").valueChanges().subscribe(listtaikhoan => {
       this.dsTaiKhoan = listtaikhoan;
@@ -53,12 +54,25 @@ export class HeaderComponent implements OnInit {
       window.location.reload();
       islogin = true;
     }
-    if (this.maUser.substring(0,2) == "GV" && islogin == true){
-      this.routerSevice.navigate(['/teacherhome']);
+    if (this.maUser.length > 2){
+      if (this.maUser.substring(0,2) == "GV" && islogin == true){
+        this.routerSevice.navigate(['/teacherhome']);
+        window.location.reload();
+        islogin = true;
+      }
     }
     if (islogin == true) {
       this.checkLogin = false;
       this.logged = true;
+      this.data.list("SinhVien").valueChanges().subscribe(data => {
+        let dsSinhVien = data;
+        for (let i = 0; i < dsSinhVien.length; i++){
+          if (dsSinhVien[i]['maSinhVien'] == this.maUser){
+            this.tenUser = dsSinhVien[i]['tenSinhVien'];
+            break;
+          }
+        }
+      });
     }
     else {
       this.checkLogin = true;

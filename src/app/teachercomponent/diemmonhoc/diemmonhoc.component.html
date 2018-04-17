@@ -3,15 +3,15 @@
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-">
              <div class="list-group">
-             <a *ngFor="let item of dsLopHoc" [routerLink]="['/teacherhome/diemmonhoc']"  class="list-group-item list-group-item-action">{{item.tenLop}}</a>
+             <button *ngFor="let item of dsLopHoc; let i = index"  class="btn list-group-item list-group-item-action text-primary" style="font-weight: bold" (click)="changLopHoc($event,i)">{{item.tenLop}}</button>
              </div>
         </div>
                 
         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
             <app-themsinhvienvaolop></app-themsinhvienvaolop>
             <div class="card" style="margin-top: 10px">
-                <div class="card-header">
-                    Lý thuyết đồ thị
+                <div class="card-header bg-primary" style="font-weight: bold; color: white">
+                    {{tenLopHoc}}
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -24,6 +24,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    
                     <table class="table table-bordered table-hover text-center">
                         <thead>
                             <tr>
@@ -33,6 +34,8 @@
                                 <th>Giữa Kỳ</th>
                                 <th>Cuối Kỳ</th>
                                 <th>Kết Quả</th>
+                                <th>Nhập điểm</th>
+                                <th>Xoá</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,9 +43,23 @@
                                 <td>{{i+1}}</td>
                                 <td>{{item.maSinhVien}}</td>
                                 <td>{{item.tenSinhVien}}</td>
-                                <td>{{item.diemGiuaKy}}</td>
-                                <td>{{item.diemCuoiKy}}</td>
+                                <td *ngIf="!checkChange(i)" >{{item.diemGiuaKy}}</td>
+                                <td *ngIf="checkChange(i)">
+                                    <input style="width: 100px; margin: auto" type="text" class="form-control" name="newDiemGiuaKy" [(ngModel)]="newDiemGiuaKy" id="" aria-describedby="emailHelpId" placeholder="{{item.diemGiuaKy}}">
+                                </td>
+                                <td *ngIf="!checkChange(i)">{{item.diemCuoiKy}}</td>
+                                <td  *ngIf="checkChange(i)">
+                                    <input style="width: 100px; margin: auto" type="text" class="form-control" name="newDiemCuoiKy" [(ngModel)]="newDiemCuoiKy" id="" aria-describedby="emailHelpId" placeholder="{{item.diemCuoiKy}}">
+                                </td>
                                 <td>{{item.ketQua}}</td>
+                                <td>
+                                    <button *ngIf="!checkChange(i)"  type="button" class="btn btn-success btn-sm" (click)="xuLyNhapDiem(item,i)">Nhập</button>
+                                    <button *ngIf="checkChange(i)" type="button" class="btn btn-success btn-sm" (click)="xuLyXongNhapDiem(i)">Xong</button>
+                                    <button *ngIf="checkChange(i)" type="button" class="btn btn-warning btn-sm" (click)="xuLyHuyNhapDiem()">Huỷ</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" (click)="xuLyXoaSinhVien(i)">Xoá</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

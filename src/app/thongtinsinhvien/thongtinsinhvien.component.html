@@ -1,0 +1,42 @@
+<div class="row" style="margin-top: 20px">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <h5>Họ và tên:    <span style="font-weight: bold; margin-left: 100px">{{sinhVien.tenSinhVien}}</span></h5>
+    <h5>Ngành học:   <span style="font-weight: bold; margin-left: 90px">{{sinhVien.nganhHoc}}</span></h5>
+    <h5>Số tín chỉ đã tích luỹ:   <span style="font-weight: bold; margin-left: 90px">{{tongTinChi}}</span></h5>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <h5>Giới tính:   <span style="font-weight: bold; margin-left: 100px">{{sinhVien.gioiTinh}}</span></h5>
+    <h5>Năm sinh:    <span style="font-weight: bold; margin-left: 90px">{{sinhVien.namSinh}}</span></h5>
+  </div>
+  
+  <div class="card" style="width: 100%; margin-top: 20px">
+    <div class="card-header bg-primary">
+      <h4 style="font-weight: bold" class="text-white">Danh sách môn học tích luỹ</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-hover text-center">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên môn học</th>
+                <th>Tín chỉ</th>
+                <th>Điểm giữa kỳ</th>
+                <th>Điểm cuối kỳ</th>
+                <th>Kết quả</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of sinhVien.monHocTichLuy; let i = index" >
+                <td>{{i+1}}</td>
+                <td>{{item.tenMonHoc}}</td>
+                <td>{{item.hocPhi}}</td>
+                <td>{{item.diemGiuaKy}}</td>
+                <td>{{item.diemCuoiKy}}</td>
+                <td>{{item.ketQua}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+  
+</div>

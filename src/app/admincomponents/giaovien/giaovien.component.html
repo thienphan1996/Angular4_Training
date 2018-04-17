@@ -1,8 +1,8 @@
 <div class="row justify-content-md-center">
   <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
     <div class="card text-center">
-      <div class="card-header">
-          <h4 class="text-primary">Danh sách giáo viên</h4>
+      <div class="card-header bg-primary" style="color: white; font-weight: bold; font-size: 20px">
+        Danh sách giáo viên
       </div>
       <div class="card-body">
           <app-themgiaovien style="float: right; margin-bottom: 10px"></app-themgiaovien>
@@ -14,6 +14,7 @@
                 <th class="tablehead">Tên giáo viên</th>
                 <th class="tablehead">Giới tính</th>
                 <th class="tablehead">Năm sinh</th>
+                <th class="tablehead">Phone</th>
                 <th class="tablehead">Môn đứng lớp</th>
                 <th class="tablehead">Cập nhật</th>
               </tr>
@@ -25,15 +26,16 @@
                 <td>{{item.tenGiaoVien}}</td>
                 <td>{{item.gioiTinh}}</td>
                 <td>{{item.namSinh}}</td>
-                <td *ngIf="!isChange">{{item.monDungLop}}</td>
-                <td  *ngIf="isChange" >
+                <td>{{item.phone}}</td>
+                <td *ngIf="!checkChange(i)">{{item.monDungLop}}</td>
+                <td  *ngIf="checkChange(i)" >
                     <input type="text" class="form-control" placeholder="{{item.monDungLop}}" [(ngModel)]="newSubject">
                 </td>
                 <td>
-                  <button class="btn btn-outline-danger btn-sm" style="margin-right: 4px" *ngIf="!isChange" (click)="xuLyXoaGiaoVien(i)">Xoá</button>
-                  <button class="btn btn-outline-primary btn-sm" (click)="xuLySuaGiaoVien()" *ngIf="!isChange">Sửa</button>
-                  <button class="btn btn-success btn-sm" (click)="changedGiaoVien(i,item.maGiaoVien,item.tenGiaoVien,item.gioiTinh,item.namSinh)" *ngIf="isChange">Xong</button>
-                  <button class="btn btn-warning btn-sm" (click)="xuLyHuyChange()" *ngIf="isChange" >Huỷ</button>
+                  <button class="btn btn-outline-primary btn-sm" (click)="xuLySuaGiaoVien(i)" *ngIf="!checkChange(i)">Sửa</button>
+                  <button class="btn btn-outline-danger btn-sm" style="margin-right: 4px" *ngIf="!checkChange(i)" (click)="xuLyXoaGiaoVien(i)">Xoá</button>
+                  <button class="btn btn-success btn-sm" (click)="changedGiaoVien(i,item.maGiaoVien,item.tenGiaoVien,item.gioiTinh,item.namSinh)" *ngIf="checkChange(i)">Xong</button>
+                  <button class="btn btn-warning btn-sm" (click)="xuLyHuyChange()" *ngIf="checkChange(i)" >Huỷ</button>
                 </td>
               </tr>
             </tbody>

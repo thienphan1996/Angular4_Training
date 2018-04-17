@@ -12,6 +12,7 @@ export class ThemsinhvienvaolopComponent implements OnInit {
 
   todosSinhVien : AngularFireList<any>;
   sinhVienSelect : string;
+  lopHocSelect : string;
   maSinhVien : string;
   dsSinhVien : any[];
   dsLopHoc : any[];
@@ -32,6 +33,10 @@ export class ThemsinhvienvaolopComponent implements OnInit {
     this.sinhVienSelect = event['tenSinhVien'];
     this.maSinhVien = event['maSinhVien'];
   }
+
+  onSelectLopHocChange(event){
+    this.lopHocSelect = event;
+  }
   
   sinhVienExist(arrSinhVien : any[],maSV : string){
     for (let i = 0 ; i < arrSinhVien.length; i++){
@@ -46,7 +51,7 @@ export class ThemsinhvienvaolopComponent implements OnInit {
     this.todosSinhVien = this.mydb.list("LopHoc");
     let find = 0;
     for (let i = 0; i < this.dsLopHoc.length; i++){
-      if (this.dsLopHoc[i]['maLop'] == "LTDT02"){
+      if (this.dsLopHoc[i]['tenLop'] == this.lopHocSelect){
         find = i;
         break;
       }

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand navbar-light" style="background-color: #3F51B5; height: 44px;">
-    <a class="navbar-brand" href="#"><h4 style="font-weight: bold; color: #fff">Administrator</h4></a>
+    <a class="navbar-brand" [routerLink]="['/quanlydaotao']"><h4 style="font-weight: bold; color: #fff">Administrator</h4></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0 nav-tabs" style="font-weight: bold; color: #fff">
         <li class="nav-item">
             <a class="nav-link" style="color: #fff" [routerLink]="['qldthome']">Chương trình đào tạo <span class="sr-only">(current)</span></a>
@@ -29,8 +29,8 @@
                     Xin chào Administrator
                 </button>
         <div class="dropdown-menu" aria-labelledby="triggerId">
-            <button class="dropdown-item" href="#">Đổi mật khẩu</button>
-            <button class="dropdown-item" href="#">Đăng xuất</button>
+            <button class="dropdown-item" [routerLink]="['doimatkhauadmin']">Đổi mật khẩu</button>
+            <button class="dropdown-item" [routerLink]="['/']">Đăng xuất</button>
         </div>
     </div>
 </nav>

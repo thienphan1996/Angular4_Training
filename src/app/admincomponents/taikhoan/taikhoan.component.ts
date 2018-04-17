@@ -12,6 +12,7 @@ export class TaikhoanComponent implements OnInit {
   dsTaiKhoanGiaoVien = [];
   dsTaiKhoanSinhVien = [];
   dsTaiKhoan = [];
+  loaiTaiKhoan : any;
   constructor(public mydb : AngularFireDatabase) { 
     this.mydb.list("TaiKhoan").valueChanges().subscribe(data => {
       this.dsTaiKhoan = data;
@@ -32,9 +33,11 @@ export class TaikhoanComponent implements OnInit {
   xuLyShowTaiKhoan(i){
       if (i==0){
         this.dsTaiKhoan = this.dsTaiKhoanGiaoVien;
+        this.loaiTaiKhoan = 'Giáo viên';
       }
       else if (i == 1){
         this.dsTaiKhoan = this.dsTaiKhoanSinhVien;
+        this.loaiTaiKhoan = 'Sinh viên';
       }
   }
 }

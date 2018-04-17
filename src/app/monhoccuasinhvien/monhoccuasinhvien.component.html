@@ -1,0 +1,36 @@
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="card" style="margin-top: 20px">
+    <div class="card-header bg-primary text-white">
+      <h4 style="font-weight: bold">Các môn đang học</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover text-center">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên môn học</th>
+            <th>Tiết học</th>
+            <th>Phòng</th>
+            <th>Thời gian</th>
+            <th>Giữa kỳ</th>
+            <th>Cuối kỳ</th>
+            <th>Kết quả</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of monDangHoc; let i = index" >
+            <td>{{i+1}}</td>
+            <td>{{item.tenMonHoc}}</td>
+            <td>{{item.tietHoc}}</td>
+            <td>{{item.phongHoc}}</td>
+            <td>{{item.thoiGian}}</td>
+            <td>{{item.diemGiuaKy}}</td>
+            <td>{{item.diemCuoiKy}}</td>
+            <td>{{item.ketQua}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

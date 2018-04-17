@@ -16,6 +16,7 @@ export class MonhocComponent implements OnInit {
   newMaMonHoc = '';
   newTenMonHoc = '';
   newHocPhi = '';
+  indexChange : number = -1;
   constructor(public mydb : AngularFireDatabase) { 
     this.mydb.list('MonHoc').valueChanges().subscribe(data =>{
       this.dsMonHoc = data;
@@ -33,10 +34,18 @@ export class MonhocComponent implements OnInit {
     });
   }
   
-  changeMonHoc(){
+  changeMonHoc(i){
+    this.indexChange = i;
     this.isChange = true;
   }
   
+  checkChange(i: number){
+    if (this.indexChange==i && this.isChange==true){
+      return true;
+    }
+    return false;
+  }
+
   changedMonHoc(i){
     let newMonHoc = {
       "maMonHoc" : this.newMaMonHoc,

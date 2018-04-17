@@ -40,6 +40,10 @@ import { TeacherhomeComponent } from './teachercomponent/teacherhome/teacherhome
 import { ChuongtrinhdetailComponent } from './chuongtrinhdetail/chuongtrinhdetail.component';
 import { ThemsinhvienvaolopComponent } from './teachercomponent/themsinhvienvaolop/themsinhvienvaolop.component';
 import { DiemmonhocComponent } from './teachercomponent/diemmonhoc/diemmonhoc.component';
+import { DoimatkhauComponent } from './doimatkhau/doimatkhau.component';
+import { PrivatesinhvienComponent } from './privatesinhvien/privatesinhvien.component';
+import { ThongtinsinhvienComponent } from './thongtinsinhvien/thongtinsinhvien.component';
+import { MonhoccuasinhvienComponent } from './monhoccuasinhvien/monhoccuasinhvien.component';
 
 
 
@@ -71,6 +75,24 @@ const appRouter: Routes = [
       {
         path: 'nganhdaotao',
         component: NganhdaotaoComponent
+      },
+      {
+        path: 'doimatkhausinhvien',
+        component: DoimatkhauComponent
+      },
+      {
+        path: 'privatesinhvien',
+        component: PrivatesinhvienComponent,
+        children: [
+          {
+            path: 'thongtinsinhvien',
+            component: ThongtinsinhvienComponent
+          },
+          {
+            path: 'monhoccuasinhvien',
+            component: MonhoccuasinhvienComponent
+          }
+        ]
       },
       {
         path: 'ctdaotao',
@@ -151,6 +173,14 @@ const appRouter: Routes = [
       {
         path: 'taikhoan',
         component: TaikhoanComponent
+      },
+      {
+        path: 'diemmonhoc',
+        component: DiemmonhocComponent
+      },
+      {
+        path: 'doimatkhauadmin',
+        component: DoimatkhauComponent
       }
     ]
   },
@@ -165,6 +195,10 @@ const appRouter: Routes = [
       {
         path: 'diemmonhoc',
         component: DiemmonhocComponent
+      },
+      {
+        path: 'doimatkhauteacher',
+        component: DoimatkhauComponent
       }
     ]
   }
@@ -207,6 +241,10 @@ const appRouter: Routes = [
     ChuongtrinhdetailComponent,
     ThemsinhvienvaolopComponent,
     DiemmonhocComponent,
+    DoimatkhauComponent,
+    PrivatesinhvienComponent,
+    ThongtinsinhvienComponent,
+    MonhoccuasinhvienComponent,
   ],
   imports: [
     BrowserModule,

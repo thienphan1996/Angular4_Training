@@ -1,8 +1,8 @@
 <div class="row justify-content-md-center" style="width: 100%">
   <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
     <div class="card text-center">
-      <div class="card-header">
-        <h4 class="text-primary">Danh sách môn học</h4>
+      <div class="card-header bg-primary" style="color: white; font-weight: bold; font-size: 20px">
+        Danh sách môn học
       </div>
       <div class="card-body">
           <app-themmonhoc style="float: right; margin-bottom: 10px"></app-themmonhoc>
@@ -12,30 +12,30 @@
                 <th class="tablehead">STT</th>
                 <th class="tablehead">Mã môn học</th>
                 <th class="tablehead">Tên môn học</th>
-                <th class="tablehead">Học phí</th>
+                <th class="tablehead">Số tín chỉ</th>
                 <th class="tablehead">Cập nhật</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of dsMonHoc; let i = index" >
                 <td>{{i+1}}</td>
-                <td *ngIf="!isChange" >{{item.maMonHoc}}</td>
-                <td *ngIf="isChange" >
+                <td *ngIf="!checkChange(i)" >{{item.maMonHoc}}</td>
+                <td *ngIf="checkChange(i)" >
                     <input type="text" class="form-control" placeholder="{{item.maMonHoc}}"  [(ngModel)]="newMaMonHoc">
                 </td>
-                <td *ngIf="!isChange">{{item.tenMonHoc}}</td>
-                <td *ngIf="isChange" >
+                <td *ngIf="!checkChange(i)">{{item.tenMonHoc}}</td>
+                <td *ngIf="checkChange(i)" >
                     <input type="text" class="form-control" placeholder="{{item.tenMonHoc}}" [(ngModel)]="newTenMonHoc">
                 </td>
-                <td *ngIf="!isChange">{{item.hocPhi}}</td>
-                <td *ngIf="isChange" >
+                <td *ngIf="!checkChange(i)">{{item.hocPhi}}</td>
+                <td *ngIf="checkChange(i)" >
                     <input type="text" class="form-control" placeholder="{{item.hocPhi}}" [(ngModel)]="newHocPhi">
                 </td>
                 <td>
-                  <button type="button" class="btn btn-outline-danger btn-sm" style="margin-right: 4px" *ngIf="!isChange" (click)="xuLyXoaMonHoc(i)">Xoá</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="changeMonHoc()" *ngIf="!isChange">Sửa</button>
-                  <button type="button" class="btn btn-success btn-sm" (click)="changeMonHoc()" *ngIf="isChange" (click)="changedMonHoc(i)">Xong</button>
-                  <button type="button" class="btn btn-warning btn-sm" (click)="cancelChangeMonHoc()" *ngIf="isChange">Huỷ</button>
+                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="changeMonHoc(i)" *ngIf="!checkChange(i)">Sửa</button>
+                  <button type="button" class="btn btn-outline-danger btn-sm" style="margin-right: 4px" *ngIf="!checkChange(i)" (click)="xuLyXoaMonHoc(i)">Xoá</button>
+                  <button type="button" class="btn btn-success btn-sm" (click)="changedMonHoc(i)" *ngIf="checkChange(i)" >Xong</button>
+                  <button type="button" class="btn btn-warning btn-sm" (click)="cancelChangeMonHoc()" *ngIf="checkChange(i)">Huỷ</button>
                 </td>
               </tr>
             </tbody>

@@ -16,6 +16,7 @@ export class ThemgiaovienComponent implements OnInit {
   gioiTinh : string;
   dsMonHoc : any[];
   monHocSelect : any;
+  phone : any;
   constructor(public mydb : AngularFireDatabase) {
     this.mydb.list("MonHoc").valueChanges().subscribe(data =>{
       this.dsMonHoc = data;
@@ -32,6 +33,7 @@ export class ThemgiaovienComponent implements OnInit {
       "tenGiaoVien" : this.tenGiaoVien,
       "namSinh" : this.namSinh,
       "gioiTinh" : this.gioiTinh,
+      "phone" : this.phone,
       "monDungLop" : this.monHocSelect
     };
     this.mydb.list("/GiaoVien").push(giaoVien);
