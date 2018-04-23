@@ -2,8 +2,8 @@
   <div class="row justify-content-md-center">
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
       <nav class="nav nav-pills nav-stacked text-center">
-        <a class="nav-link" [ngClass]="link ? 'active' : ''" (click)="linkChange()" style="width: 50%; font-weight: bold" [routerLink]="['thongtinsinhvien']">Thông tin sinh viên</a>
-        <a class="nav-link" [ngClass]="link === false ? 'active' : ''" (click)="linkChange()" style="width: 50%; font-weight: bold" [routerLink]="['monhoccuasinhvien']">Thời khoá biểu</a>
+        <a class="nav-link" [ngClass]="link ? 'active' : ''" (click)="linkChange()" style="width: 50%; font-weight: bold" [routerLink]="['thongtinsinhvien',maUser]">Thông tin sinh viên</a>
+        <a class="nav-link" [ngClass]="link === false ? 'active' : ''" (click)="linkChange()" style="width: 50%; font-weight: bold" [routerLink]="['monhoccuasinhvien',maUser]">Thời khoá biểu</a>
       </nav>
       <router-outlet>
 

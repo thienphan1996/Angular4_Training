@@ -67,7 +67,7 @@
                             Xin chào {{tenUser}}
                     </button>
                   <div class="dropdown-menu" aria-labelledby="triggerId" *ngIf="logged" >
-                      <button class="dropdown-item" [routerLink]="['/privatesinhvien/thongtinsinhvien']">Cá nhân</button>
+                      <button class="dropdown-item" [routerLink]="['/privatesinhvien',maUser]" type="reset">Cá nhân</button>
                       <button class="dropdown-item" [routerLink]="['/doimatkhausinhvien']">Đổi mật khẩu</button>
                       <button class="dropdown-item" (click)="xuLyDangXuat()">Đăng xuất</button>
                   </div>

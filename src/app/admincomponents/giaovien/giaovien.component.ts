@@ -24,10 +24,14 @@ export class GiaovienComponent implements OnInit {
   }
 
   xuLyXoaGiaoVien(i){
+    let index = i;
     this.todosGiaoVien = this.mydb.list("GiaoVien");
     this.todosGiaoVien.snapshotChanges(["child_added"]).subscribe(action =>{
-      let key = action[i].key;
-      this.todosGiaoVien.remove(key);
+      if (index != -1){
+        let key = action[index].key;
+        this.todosGiaoVien.remove(key);
+      }
+      index = -1;
     });
   }
 

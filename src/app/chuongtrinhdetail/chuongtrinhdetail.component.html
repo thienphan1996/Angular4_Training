@@ -1,5 +1,5 @@
 <div class="row"  style="width: 100%;">
-  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="margin-top: 10px">
     <div class="list-group" *ngFor="let item of dsChuongTrinh; let i = index" >
       <button class="list-group-item list-group-item-action tablehead btn text-primary" (click)="changeContent($event,i)" type="button"  style="font-size: 15px" ><span style="font-weight: bold">{{item.tenCT}}</span></button>
     </div>
@@ -15,7 +15,7 @@
                               <th class="tablehead">STT</th>
                               <th class="tablehead">Mã môn học</th>
                               <th class="tablehead">Tên môn học</th>
-                              <th class="tablehead">Học phí</th>
+                              <th class="tablehead">Tín chỉ</th>
                           </tr>
                       </thead>
                       <tbody>

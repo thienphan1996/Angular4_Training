@@ -44,8 +44,8 @@ export class ThemlophocComponent implements OnInit {
       "phongHoc" : this.phongHoc,
       "dsSinhVien" : [
         {
-          "maSinhVien" : "SV00",
-          "tenSinhVien" : "Sinh viên Default",
+          "maSinhVien" : "",
+          "tenSinhVien" : "",
           "diemGiuaKy" : "",
           "diemCuoiKy" : "",
           "ketQua" : ""

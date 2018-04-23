@@ -11,6 +11,7 @@ import * as firebase from 'firebase/app';
 export class LophocComponent implements OnInit {
   
   todosProyectos: AngularFireList<any>;
+  fireObject: AngularFireObject<any>;
   proyectos: Observable<any[]>;
   dsLopHoc : any[];
   index : number = -1;
@@ -19,12 +20,6 @@ export class LophocComponent implements OnInit {
     this.mydb.list("/LopHoc").valueChanges().subscribe(data =>{
       this.dsLopHoc = data;
     });
-    // this.todosProyectos = this.mydb.list('LopHoc');
-    // this.proyectos = this.todosProyectos.snapshotChanges().map(changes => {
-    //   return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-    // });
-    // console.log(this.proyectos);
-    
 }
 
   ngOnInit() {
@@ -34,14 +29,12 @@ export class LophocComponent implements OnInit {
   xuLyXoaLopHoc(i){
     this.index = i;
     this.todosProyectos = this.mydb.list('LopHoc');
-    this.todosProyectos.snapshotChanges(['child_added']).subscribe(actions => {
-      let key = actions[i].key;
-      this.todosProyectos.remove(key);
-      // actions.forEach(action => {
-      //   console.log(action.type);
-      //   console.log(action.key);
-      //   console.log(action.payload.val());
-      // });
+    this.todosProyectos.snapshotChanges().subscribe(actions => {
+        if (this.index >= 0){
+          let key = actions[this.index].key;
+          this.todosProyectos.remove(key);
+        }
+        this.index = -1;
     });
   }
 }

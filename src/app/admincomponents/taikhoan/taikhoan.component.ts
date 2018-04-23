@@ -9,6 +9,7 @@ import * as firebase from 'firebase/app';
 })
 export class TaikhoanComponent implements OnInit {
 
+  todosTaiKhoan : AngularFireList<any>;
   dsTaiKhoanGiaoVien = [];
   dsTaiKhoanSinhVien = [];
   dsTaiKhoan = [];
@@ -39,5 +40,16 @@ export class TaikhoanComponent implements OnInit {
         this.dsTaiKhoan = this.dsTaiKhoanSinhVien;
         this.loaiTaiKhoan = 'Sinh viên';
       }
+  }
+  xuLyXoaTaiKhoan(i){
+    let index = i;
+    this.todosTaiKhoan = this.mydb.list("TaiKhoan");
+    this.todosTaiKhoan.snapshotChanges(["child_added"]).subscribe(action => {
+      if (index != -1){
+        let key = action[index].key;
+        this.todosTaiKhoan.remove(key);
+      }
+      index = -1;
+    });
   }
 }

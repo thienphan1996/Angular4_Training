@@ -2,7 +2,7 @@
   
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
     <div class="list-group" *ngFor="let item of dsChuongTrinhDT" >
-      <a [routerLink]="['/sinhvien']" class="list-group-item list-group-item-action tablehead" style="font-size: 15px" (click)="changeSinhVienContent(item.tenCT)">{{item.tenCT}}</a>
+      <a [routerLink]="['/quanlydaotao/sinhvien']" class="list-group-item list-group-item-action tablehead" style="font-size: 15px" (click)="changeSinhVienContent(item.tenCT)">{{item.tenCT}}</a>
     </div>
   </div>
   
@@ -31,7 +31,7 @@
               <td>{{item.tenSinhVien}}</td>
               <td>{{item.gioiTinh}}</td>
               <td>{{item.namSinh}}</td>
-              <td><button class="btn btn-sm btn-outline-danger" (click)="xuLyXoaSinhVien(i)">Xoá</button></td>
+              <td><button class="btn btn-sm btn-outline-danger" (click)="xuLyXoaSinhVien(item,i)">Xoá</button></td>
             </tr>
           </tbody>
         </table>

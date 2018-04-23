@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase,AngularFireList, AngularFireObject  } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-monhoccuasinhvien',
@@ -10,11 +11,11 @@ import * as firebase from 'firebase/app';
 })
 export class MonhoccuasinhvienComponent implements OnInit {
 
-  maUser = 'SV42';
+  maUser = '';
   dsSinhVien : any[];
   sinhVien : any;
   monDangHoc : any[];
-  constructor(public mydb : AngularFireDatabase) { 
+  constructor(public mydb : AngularFireDatabase, public routerActive : ActivatedRoute) { 
     this.mydb.list("SinhVien").valueChanges().subscribe(data => {
       this.dsSinhVien = data;
       for (let i = 0; i < this.dsSinhVien.length; i++){
@@ -28,6 +29,7 @@ export class MonhoccuasinhvienComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.maUser = this.routerActive.snapshot.params['id'];
   }
 
 }

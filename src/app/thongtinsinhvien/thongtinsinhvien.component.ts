@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase,AngularFireList, AngularFireObject  } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import {ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'app-thongtinsinhvien',
@@ -11,10 +12,11 @@ import * as firebase from 'firebase/app';
 export class ThongtinsinhvienComponent implements OnInit {
 
   dsSinhVien :  any[];
-  maUser = 'SV42';
+  maUser = '';
   sinhVien : any;
   tongTinChi : number = 0;
-  constructor(public mydb : AngularFireDatabase) {
+  diemTrungBinh : number = 0;
+  constructor(public mydb : AngularFireDatabase,public routerActive : ActivatedRoute) {
     this.mydb.list("SinhVien").valueChanges().subscribe(data => {
       this.dsSinhVien = data;
       for (let i = 0; i < this.dsSinhVien.length; i++){
@@ -26,11 +28,15 @@ export class ThongtinsinhvienComponent implements OnInit {
       let dsMonHocTichLuy : any[] = this.sinhVien['monHocTichLuy'];
       for (let i = 0 ; i < dsMonHocTichLuy.length; i++){
         this.tongTinChi += (+dsMonHocTichLuy[i]['hocPhi']);
+        this.diemTrungBinh += (+dsMonHocTichLuy[i]['ketQua']);
       }
+      this.diemTrungBinh = this.diemTrungBinh/dsMonHocTichLuy.length;
+      this.diemTrungBinh = Math.round(this.diemTrungBinh*1000)/1000;
     });
    }
 
   ngOnInit() {
+    this.maUser = this.routerActive.snapshot.params['id'];
   }
 
 }

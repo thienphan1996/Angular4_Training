@@ -1,5 +1,7 @@
-
-<div class="container-fluid">
+<div class="alert alert-primary text-center" role="alert" *ngIf="dsLopHoc === null" >
+    <strong>Bạn không có lớp học nào</strong>
+</div>
+<div class="container-fluid"  *ngIf="dsLopHoc.length > 0" >
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-">
              <div class="list-group">
@@ -34,16 +36,16 @@
                                 <th>Giữa Kỳ</th>
                                 <th>Cuối Kỳ</th>
                                 <th>Kết Quả</th>
-                                <th>Nhập điểm</th>
+                                <th *ngIf="!adminUser" >Nhập điểm</th>
                                 <th>Xoá</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of dsSinhVien; let i = index" >
+                            <tr *ngFor="let item of dsSinhVien; let i = index">
                                 <td>{{i+1}}</td>
                                 <td>{{item.maSinhVien}}</td>
                                 <td>{{item.tenSinhVien}}</td>
-                                <td *ngIf="!checkChange(i)" >{{item.diemGiuaKy}}</td>
+                                <td *ngIf="!checkChange(i)">{{item.diemGiuaKy}}</td>
                                 <td *ngIf="checkChange(i)">
                                     <input style="width: 100px; margin: auto" type="text" class="form-control" name="newDiemGiuaKy" [(ngModel)]="newDiemGiuaKy" id="" aria-describedby="emailHelpId" placeholder="{{item.diemGiuaKy}}">
                                 </td>
@@ -52,7 +54,7 @@
                                     <input style="width: 100px; margin: auto" type="text" class="form-control" name="newDiemCuoiKy" [(ngModel)]="newDiemCuoiKy" id="" aria-describedby="emailHelpId" placeholder="{{item.diemCuoiKy}}">
                                 </td>
                                 <td>{{item.ketQua}}</td>
-                                <td>
+                                <td *ngIf="!adminUser">
                                     <button *ngIf="!checkChange(i)"  type="button" class="btn btn-success btn-sm" (click)="xuLyNhapDiem(item,i)">Nhập</button>
                                     <button *ngIf="checkChange(i)" type="button" class="btn btn-success btn-sm" (click)="xuLyXongNhapDiem(i)">Xong</button>
                                     <button *ngIf="checkChange(i)" type="button" class="btn btn-warning btn-sm" (click)="xuLyHuyNhapDiem()">Huỷ</button>

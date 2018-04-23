@@ -44,6 +44,8 @@ import { DoimatkhauComponent } from './doimatkhau/doimatkhau.component';
 import { PrivatesinhvienComponent } from './privatesinhvien/privatesinhvien.component';
 import { ThongtinsinhvienComponent } from './thongtinsinhvien/thongtinsinhvien.component';
 import { MonhoccuasinhvienComponent } from './monhoccuasinhvien/monhoccuasinhvien.component';
+import { TotnghiepComponent } from './admincomponents/totnghiep/totnghiep.component';
+import { InbangtotnghiepComponent } from './admincomponents/inbangtotnghiep/inbangtotnghiep.component';
 
 
 
@@ -81,15 +83,19 @@ const appRouter: Routes = [
         component: DoimatkhauComponent
       },
       {
-        path: 'privatesinhvien',
+        path: 'privatesinhvien/:id',
         component: PrivatesinhvienComponent,
         children: [
           {
-            path: 'thongtinsinhvien',
+            path: '',
             component: ThongtinsinhvienComponent
           },
           {
-            path: 'monhoccuasinhvien',
+            path: 'thongtinsinhvien/:id',
+            component: ThongtinsinhvienComponent
+          },
+          {
+            path: 'monhoccuasinhvien/:id',
             component: MonhoccuasinhvienComponent
           }
         ]
@@ -168,24 +174,38 @@ const appRouter: Routes = [
       },
       {
         path: 'sinhvien',
-        component: SinhvienComponent
+        component: SinhvienComponent,
+        children: [
+          {
+            path: '',
+            component: SinhvienComponent
+          }
+        ]
       },
       {
         path: 'taikhoan',
         component: TaikhoanComponent
       },
       {
-        path: 'diemmonhoc',
+        path: 'totnghiep',
+        component: TotnghiepComponent
+      },
+      {
+        path: 'diemmonhoc/:id',
         component: DiemmonhocComponent
       },
       {
         path: 'doimatkhauadmin',
         component: DoimatkhauComponent
+      },
+      {
+        path: 'inbang/:id',
+        component: InbangtotnghiepComponent
       }
     ]
   },
   {
-    path:'teacherhome',
+    path:'teacherhome/:id',
     component: TeacherhomeComponent,
     children: [
       {
@@ -193,7 +213,11 @@ const appRouter: Routes = [
         component: ChuongtrinhdetailComponent
       },
       {
-        path: 'diemmonhoc',
+        path: 'chuongtrinhdetail',
+        component: ChuongtrinhdetailComponent
+      },
+      {
+        path: 'diemmonhoc/:id',
         component: DiemmonhocComponent
       },
       {
@@ -245,6 +269,8 @@ const appRouter: Routes = [
     PrivatesinhvienComponent,
     ThongtinsinhvienComponent,
     MonhoccuasinhvienComponent,
+    TotnghiepComponent,
+    InbangtotnghiepComponent,
   ],
   imports: [
     BrowserModule,

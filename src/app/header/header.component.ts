@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   dsTaiKhoan: any[];
   tenUser : string;
   constructor(private data: AngularFireDatabase,private routerSevice: Router) {
-    this.data.list("/TaiKhoan").valueChanges().subscribe(listtaikhoan => {
+    this.data.list("TaiKhoan").valueChanges().subscribe(listtaikhoan => {
       this.dsTaiKhoan = listtaikhoan;
       
     })
@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
     for (let i = 0; i < this.dsTaiKhoan.length; i++){
       if (this.dsTaiKhoan[i]['tenUser'] == this.tenTaiKhoan){
         this.maUser = this.dsTaiKhoan[i]['maUser'];
+        break;
       }
     }
     for (i; i < this.dsTaiKhoan.length; i++){
@@ -56,7 +57,7 @@ export class HeaderComponent implements OnInit {
     }
     if (this.maUser.length > 2){
       if (this.maUser.substring(0,2) == "GV" && islogin == true){
-        this.routerSevice.navigate(['/teacherhome']);
+        this.routerSevice.navigate(['/teacherhome',this.maUser]);
         window.location.reload();
         islogin = true;
       }
@@ -73,6 +74,7 @@ export class HeaderComponent implements OnInit {
           }
         }
       });
+      
     }
     else {
       this.checkLogin = true;

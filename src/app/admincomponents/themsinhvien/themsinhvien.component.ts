@@ -34,7 +34,28 @@ export class ThemsinhvienComponent implements OnInit {
       "tenSinhVien" : this.tenSinhVien,
       "namSinh" : this.namSinh,
       "gioiTinh" : this.gioiTinh,
-      "nganhHoc" : this.nganhHocSelect
+      "nganhHoc" : this.nganhHocSelect,
+      "monHocTichLuy" : [
+        {
+          "diemCuoiKy" : "",
+          "diemGiuaKy" : "",
+          "ketQua" : "",
+          "maMonHoc" : "",
+          "tenMonHoc" : "",
+        } 
+      ],
+      "monHocDangHoc" : [
+        {
+          "diemCuoiKy" : "",
+          "diemGiuaKy" : "",
+          "ketQua" : "",
+          "maMonHoc" : "",
+          "phongHoc" : "",
+          "tenMonHoc" : "",
+          "thoiGian" : "",
+          "tietHoc" : ""
+        }
+      ]
     };
     this.mydb.list("SinhVien").push(sinhVien);
   }

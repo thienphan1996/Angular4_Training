@@ -27,10 +27,14 @@ export class MonhocComponent implements OnInit {
   }
 
   xuLyXoaMonHoc(i){
+    let index = i;
     this.todosMonHoc = this.mydb.list("MonHoc");
     this.todosMonHoc.snapshotChanges(['child_added']).subscribe(actions => {
-      let key = actions[i].key;
-      this.todosMonHoc.remove(key);
+      if (index != -1){
+        let key = actions[index].key;
+        this.todosMonHoc.remove(key);
+      }
+      index = -1;
     });
   }
   
@@ -47,11 +51,14 @@ export class MonhocComponent implements OnInit {
   }
 
   changedMonHoc(i){
-    let newMonHoc = {
-      "maMonHoc" : this.newMaMonHoc,
-      "tenMonHoc" : this.newTenMonHoc,
-      "hocPhi" : this.newHocPhi
-    };
+    let newMonHoc : any;
+    if (this.newMaMonHoc != '' && this.newTenMonHoc != '' && this.newHocPhi){
+      newMonHoc = {
+        "maMonHoc" : this.newMaMonHoc,
+        "tenMonHoc" : this.newTenMonHoc,
+        "hocPhi" : this.newHocPhi
+      };
+    }
     this.todosMonHoc = this.mydb.list("MonHoc");
     this.todosMonHoc.snapshotChanges(['child_added']).subscribe(actions => {
       let key = actions[i].key;

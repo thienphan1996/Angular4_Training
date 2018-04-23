@@ -19,15 +19,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of monDangHoc; let i = index" >
-            <td>{{i+1}}</td>
-            <td>{{item.tenMonHoc}}</td>
-            <td>{{item.tietHoc}}</td>
-            <td>{{item.phongHoc}}</td>
-            <td>{{item.thoiGian}}</td>
-            <td>{{item.diemGiuaKy}}</td>
-            <td>{{item.diemCuoiKy}}</td>
-            <td>{{item.ketQua}}</td>
+          <tr *ngFor="let item of monDangHoc; let i = index">
+            <td  *ngIf="i>0" >{{i}}</td>
+            <td  *ngIf="i>0" >{{item.tenMonHoc}}</td>
+            <td  *ngIf="i>0" >{{item.tietHoc}}</td>
+            <td  *ngIf="i>0" >{{item.phongHoc}}</td>
+            <td  *ngIf="i>0" >{{item.thoiGian}}</td>
+            <td  *ngIf="i>0" >{{item.diemGiuaKy}}</td>
+            <td  *ngIf="i>0" >{{item.diemCuoiKy}}</td>
+            <td  *ngIf="i>0" >{{item.ketQua}}</td>
           </tr>
         </tbody>
       </table>

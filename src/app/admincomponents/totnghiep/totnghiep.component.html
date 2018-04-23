@@ -1,0 +1,33 @@
+<div class="row justify-content-md-center">
+  <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+    <div class="card text-center">
+      <div class="card-header bg-primary" style="color: white; font-weight: bold; font-size: 20px">
+        Danh sách sinh viên tốt nghiệp
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="text-primary">
+              <th>STT</th>
+              <th>Họ và tên</th>
+              <th>Giới tính</th>
+              <th>Năm sinh</th>
+              <th>Ngành</th>
+              <th>IN BẰNG</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of showSinhVien; let i = index" >
+              <td>{{i+1}}</td>
+              <td>{{item.tenSinhVien}}</td>
+              <td>{{item.gioiTinh}}</td>
+              <td>{{item.namSinh}}</td>
+              <td>{{item.nganhHoc}}</td>
+              <td><button type="button" class="btn btn-success btn-sm" [routerLink]="['/quanlydaotao/inbang',item.maSinhVien]">IN BẰNG</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
