@@ -28,7 +28,7 @@
             <tr *ngFor="let item of showSinhVien; let i = index" >
               <td>{{i+1}}</td>
               <td>{{item.maSinhVien}}</td>
-              <td>{{item.tenSinhVien}}</td>
+              <td><a [routerLink]="['/quanlydaotao/chitiettotnghiep',item.maSinhVien]">{{item.tenSinhVien}}</a></td>
               <td>{{item.gioiTinh}}</td>
               <td>{{item.namSinh}}</td>
               <td><button class="btn btn-sm btn-outline-danger" (click)="xuLyXoaSinhVien(item,i)">Xoá</button></td>

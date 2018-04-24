@@ -1,14 +1,14 @@
 .item{
-	background-color: #BDBDBD44;
 	border-radius: 5px;
 	text-align: center;
 }
 .item:hover{
-    background-color: #BDBDBD99;
+    background-color: #007bff;
+    color: white;
 }
 .giamonhoc{
     font-weight: bold;
-    color: #80DEEA;
+    color: red;
 }
 .inputgroup{
     height: 30px;
@@ -23,11 +23,11 @@
 }
 
 .linkcustom{
-    color: #ffffff;
+    color: #007bff;
+    font-weight: bold;
 }
 
 .linkcustom:hover{
-    color: #BBDEFB;
     text-decoration: none;
 }
 

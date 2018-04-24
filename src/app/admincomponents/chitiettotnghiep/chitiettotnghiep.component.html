@@ -1,0 +1,53 @@
+<div class="row justify-content-md-center">
+  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    <div class="card">
+      <div class="card-header text-center bg-primary">
+        <h4 class="text-white" style="font-weight: bold">Chi tiết sinh viên</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h5>Tên sinh viên: <span class="text">{{sinhVien.tenSinhVien}}</span></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h5>Ngành học: <span class="text">{{sinhVien.nganhHoc}}</span></h5>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <h5>Tổng tín chỉ tích luỹ: <span class="text">{{tongTinChi}}</span></h5>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <h5>Điểm trung bình: <span class="text">{{diemTrungBinh}}</span></h5>
+            </div>
+          </div>
+        <table class="table table-bordered table-hover text-center" style="margin-top: 20px">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã môn học</th>
+              <th>Tên môn học</th>
+              <th>Điểm giữa kỳ</th>
+              <th>Điểm cuối kỳ</th>
+              <th>Kết quả</th>
+              <th>Tín chỉ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of dsMonHocTichLuy; let i = index" >
+              <td>{{i+1}}</td>
+              <td>{{item.maMonHoc}}</td>
+              <td>{{item.tenMonHoc}}</td>
+              <td>{{item.diemGiuaKy}}</td>
+              <td>{{item.diemCuoiKy}}</td>
+              <td>{{item.ketQua}}</td>
+              <td>{{item.hocPhi}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>

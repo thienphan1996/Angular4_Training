@@ -46,6 +46,8 @@ import { ThongtinsinhvienComponent } from './thongtinsinhvien/thongtinsinhvien.c
 import { MonhoccuasinhvienComponent } from './monhoccuasinhvien/monhoccuasinhvien.component';
 import { TotnghiepComponent } from './admincomponents/totnghiep/totnghiep.component';
 import { InbangtotnghiepComponent } from './admincomponents/inbangtotnghiep/inbangtotnghiep.component';
+import { ChitiettotnghiepComponent } from './admincomponents/chitiettotnghiep/chitiettotnghiep.component';
+import { ChitietsinhvienComponent } from './admincomponents/chitietsinhvien/chitietsinhvien.component';
 
 
 
@@ -201,6 +203,10 @@ const appRouter: Routes = [
       {
         path: 'inbang/:id',
         component: InbangtotnghiepComponent
+      },
+      {
+        path: 'chitiettotnghiep/:id',
+        component: ChitiettotnghiepComponent
       }
     ]
   },
@@ -271,6 +277,8 @@ const appRouter: Routes = [
     MonhoccuasinhvienComponent,
     TotnghiepComponent,
     InbangtotnghiepComponent,
+    ChitiettotnghiepComponent,
+    ChitietsinhvienComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@ export class TotnghiepComponent implements OnInit {
     this.mydb.list("SinhVien").valueChanges().subscribe(data => {
       this.allSinhVien = data;
       for (let i = 0; i < this.allSinhVien.length; i++){
-        let monHocTichLuy: any[] = this.allSinhVien[i]['monHocTichLuy'];
+        let monHocTichLuy : any[] = this.allSinhVien[i]['monHocTichLuy'];
         let tongTinChi = 0;
         if (monHocTichLuy.length>0){
           for (let j = 0; j < monHocTichLuy.length; j++){
