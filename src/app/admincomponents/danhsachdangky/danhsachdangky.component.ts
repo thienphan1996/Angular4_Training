@@ -10,10 +10,16 @@ import * as firebase from 'firebase/app';
 })
 export class DanhsachdangkyComponent implements OnInit {
 
-  dsDangKy : any[];
+  dsTamHoan = new Array();
+  dsSinhVien : any[];
   constructor(public mydb : AngularFireDatabase) { 
-    this.mydb.list("DangKy").valueChanges().subscribe(data =>{
-      this.dsDangKy = data;
+    this.mydb.list("SinhVien").valueChanges().subscribe(data =>{
+      this.dsSinhVien = data;
+      for (let i = 0; i < this.dsSinhVien.length; i++){
+          if (this.dsSinhVien[i]['trangThai'] == "Tạm hoãn"){
+            this.dsTamHoan.push(this.dsSinhVien[i]);
+          }
+      }
     });
   }
 

@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ChitiettotnghiepComponent implements OnInit {
 
+  todosSinhVien : AngularFireList<any>;
   maSinhVien : string;
   dsMonHocTichLuy : any[];
   sinhVien : any;
@@ -49,4 +50,30 @@ export class ChitiettotnghiepComponent implements OnInit {
     });
   }
 
+  xuLyTamHoan(){
+    let index : number;
+    let sv : any;
+    this.mydb.list("SinhVien").valueChanges().subscribe(data => {
+      let dsSinhVien : any[] = data;
+      for (let i = 0; i < dsSinhVien.length; i++){
+        if (dsSinhVien[i]['maSinhVien'] == this.maSinhVien){
+          index = i;
+          sv = dsSinhVien[i];
+          break;
+        }
+      }
+      sv['trangThai'] = "Tạm hoãn";
+      this.todosSinhVien = this.mydb.list("SinhVien");
+      this.todosSinhVien.snapshotChanges(["child_added"]).subscribe(action => {
+        if (index != -1){
+          let key = action[index].key;
+          this.todosSinhVien.set(key,sv);
+          index = -1;
+        }
+      });
+      console.log(sv);
+    });
+    
+    
+  }
 }

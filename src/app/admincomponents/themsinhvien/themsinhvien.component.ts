@@ -35,6 +35,7 @@ export class ThemsinhvienComponent implements OnInit {
       "namSinh" : this.namSinh,
       "gioiTinh" : this.gioiTinh,
       "nganhHoc" : this.nganhHocSelect,
+      "trangThai" : "Đang học",
       "monHocTichLuy" : [
         {
           "diemCuoiKy" : "",
